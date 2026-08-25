@@ -1,0 +1,44 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: light;
+}
+
+body {
+  @apply bg-gray-50 text-gray-900;
+}
+input,
+textarea,
+select {
+  background-color: #ffffff !important;
+  color: #111827 !important;
+  caret-color: #111827 !important;
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: #6b7280 !important;
+  opacity: 1;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  background-color: #ffffff !important;
+  color: #111827 !important;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill {
+  -webkit-text-fill-color: #111827 !important;
+  box-shadow: 0 0 0 1000px #ffffff inset !important;
+}
+
+input[type="password"] {
+  color: #111827 !important;
+  background-color: #ffffff !important;
+}
