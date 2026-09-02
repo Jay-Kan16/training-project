@@ -121,9 +121,9 @@ export default function SettlementsPage() {
         subtitle="See who owes whom."
       />
 
-      <Card className="p-5">
+      <Card className="p-4 sm:p-5">
         <div className="mb-4">
-          <h2 className="font-semibold text-slate-100">
+          <h2 className="font-semibold text-slate-100 text-sm sm:text-base">
             Settlements
           </h2>
 
@@ -160,7 +160,6 @@ export default function SettlementsPage() {
               const isSettling =
                 settling[key];
 
-              // FIX: get the reminder state for this settlement
               const isReminding =
                 reminding[key];
 
@@ -170,20 +169,20 @@ export default function SettlementsPage() {
               return (
                 <li
                   key={key}
-                  className="interactive-row py-4 px-2 -mx-2 flex items-center justify-between gap-3 flex-wrap"
+                  className="interactive-row py-3.5 sm:py-4 px-2 -mx-2 flex flex-col sm:flex-row sm:items-center justify-between gap-3"
                 >
-                  <div className="flex items-center gap-3">
+                  <div className="flex items-center gap-3 min-w-0 flex-1">
                     <Avatar
                       name={otherName}
                       size={40}
                     />
 
-                    <div>
-                      <p className="font-semibold text-slate-100">
+                    <div className="min-w-0 flex-1">
+                      <p className="font-semibold text-slate-100 text-xs sm:text-sm truncate">
                         {otherName}
                       </p>
 
-                      <p className="text-xs text-slate-500">
+                      <p className="text-[11px] sm:text-xs text-slate-500 truncate">
                         {youOwe
                           ? `You owe ${otherName}`
                           : `${otherName} owes you`}{' '}
@@ -191,16 +190,16 @@ export default function SettlementsPage() {
                       </p>
 
                       {error && (
-                        <p className="text-xs text-rose-400 mt-1">
+                        <p className="text-[11px] sm:text-xs text-rose-400 mt-1">
                           {error}
                         </p>
                       )}
                     </div>
                   </div>
 
-                  <div className="flex items-center gap-3">
+                  <div className="flex items-center justify-between sm:justify-end gap-3 shrink-0 pl-12 sm:pl-0">
                     <span
-                      className={`font-bold text-sm ${
+                      className={`font-bold text-sm sm:text-base ${
                         youOwe
                           ? 'text-rose-400'
                           : 'text-emerald-400'
@@ -212,7 +211,7 @@ export default function SettlementsPage() {
                     </span>
 
                     {status ? (
-                      <span className="text-xs font-semibold text-emerald-400 bg-emerald-500/10 border border-emerald-500/20 px-3 py-1.5 rounded-lg">
+                      <span className="text-xs font-semibold text-emerald-400 bg-emerald-500/10 border border-emerald-500/20 px-3.5 py-1.5 rounded-xl">
                         {status}
                       </span>
                     ) : youOwe ? (
@@ -224,7 +223,7 @@ export default function SettlementsPage() {
                           )
                         }
                         disabled={isSettling}
-                        className="bg-primary-500/15 hover:bg-primary-500/25 disabled:opacity-50 disabled:cursor-not-allowed text-primary-200 text-sm font-semibold px-4 py-1.5 rounded-lg transition-colors"
+                        className="bg-primary-500/15 hover:bg-primary-500/25 active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed text-primary-200 text-xs sm:text-sm font-semibold px-4 py-2 sm:py-1.5 rounded-xl transition-all"
                       >
                         {isSettling
                           ? 'Settling…'
@@ -239,7 +238,7 @@ export default function SettlementsPage() {
                           )
                         }
                         disabled={isReminding}
-                        className="bg-primary-500/15 hover:bg-primary-500/25 disabled:opacity-50 disabled:cursor-not-allowed text-primary-200 text-sm font-semibold px-4 py-1.5 rounded-lg transition-colors"
+                        className="bg-primary-500/15 hover:bg-primary-500/25 active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed text-primary-200 text-xs sm:text-sm font-semibold px-4 py-2 sm:py-1.5 rounded-xl transition-all"
                       >
                         {isReminding
                           ? 'Reminding…'

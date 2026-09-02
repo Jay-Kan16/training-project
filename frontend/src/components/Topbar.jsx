@@ -11,11 +11,11 @@ export default function Topbar({ title, subtitle }) {
   const [dropdownOpen, setDropdownOpen] = useState(false);
 
   return (
-    <header className="flex items-start justify-between mb-7">
-      <div>
-        <p className="text-[10px] font-bold uppercase tracking-[.2em] text-primary-300 mb-1">Splitzy workspace</p>
-        <h1 className="text-2xl sm:text-3xl font-black tracking-tight text-white">{title}</h1>
-        {subtitle && <p className="text-sm text-slate-400 mt-1">{subtitle}</p>}
+    <header className="flex items-center justify-between mb-5 sm:mb-7 gap-3">
+      <div className="min-w-0 flex-1">
+        <p className="text-[10px] font-bold uppercase tracking-[.2em] text-primary-300 mb-0.5 truncate">Splitzy workspace</p>
+        <h1 className="text-xl sm:text-2xl md:text-3xl font-black tracking-tight text-white truncate">{title}</h1>
+        {subtitle && <p className="text-xs sm:text-sm text-slate-400 mt-0.5 sm:mt-1 truncate">{subtitle}</p>}
       </div>
 
       <div className="flex items-center gap-3 sm:gap-4 shrink-0 relative">

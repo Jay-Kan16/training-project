@@ -53,42 +53,43 @@ function AddMemberModal({ open, onClose, groupId }) {
   };
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center px-4">
-      <div className="absolute inset-0 bg-black/60" onClick={() => !submitting && onClose()} />
-      <div className="relative w-full max-w-md rounded-3xl bg-surface-card/95 backdrop-blur-xl p-6 shadow-2xl modal-panel">
+    <div className="fixed inset-0 z-50 flex items-end sm:items-center justify-center p-0 sm:p-4">
+      <div className="absolute inset-0 bg-black/70 backdrop-blur-sm" onClick={() => !submitting && onClose()} />
+      <div className="relative w-full max-w-md rounded-t-3xl sm:rounded-3xl bg-surface-card/95 backdrop-blur-2xl p-5 sm:p-6 shadow-2xl modal-panel border-t sm:border border-white/10">
+        <div className="w-12 h-1.5 bg-white/20 rounded-full mx-auto mb-3 sm:hidden" />
         <button
           type="button"
           onClick={() => !submitting && onClose()}
-          className="absolute right-4 top-4 flex h-8 w-8 items-center justify-center rounded-full bg-surface-hover text-slate-400 hover:bg-surface-border"
+          className="absolute right-4 top-4 flex h-9 w-9 items-center justify-center rounded-full bg-surface-hover text-slate-400 hover:bg-surface-border transition-colors"
           aria-label="Close"
         >
           <CloseIcon width={16} height={16} />
         </button>
 
-        <div className="mb-5 pr-8">
-          <div className="mb-3 flex h-10 w-10 items-center justify-center rounded-xl bg-primary-500/15 text-primary-300">
+        <div className="mb-4 sm:mb-5 pr-8">
+          <div className="mb-2 sm:mb-3 flex h-10 w-10 items-center justify-center rounded-xl bg-primary-500/15 text-primary-300">
             <UsersIcon width={20} height={20} />
           </div>
-          <h2 className="text-lg font-bold text-white">Add member</h2>
-          <p className="mt-1 text-sm text-slate-400">
+          <h2 className="text-xl font-bold text-white">Add member</h2>
+          <p className="mt-0.5 text-xs sm:text-sm text-slate-400">
             Enter the email address of an existing Splitzy account.
           </p>
         </div>
 
         {error && (
-          <p className="mb-3 rounded-lg bg-rose-500/15 px-3 py-2 text-sm text-rose-400">
+          <p className="mb-3 rounded-xl bg-rose-500/15 px-3 py-2 text-xs sm:text-sm text-rose-400">
             {error}
           </p>
         )}
         {success && (
-          <p className="mb-3 rounded-lg bg-emerald-500/15 px-3 py-2 text-sm text-emerald-300">
+          <p className="mb-3 rounded-xl bg-emerald-500/15 px-3 py-2 text-xs sm:text-sm text-emerald-300">
             {success}
           </p>
         )}
 
         <form onSubmit={handleSubmit} className="space-y-4">
           <div>
-            <label htmlFor="member-email" className="mb-1.5 block text-sm font-medium text-slate-300">
+            <label htmlFor="member-email" className="mb-1 block text-xs sm:text-sm font-medium text-slate-300">
               Email address
             </label>
             <input
@@ -97,17 +98,17 @@ function AddMemberModal({ open, onClose, groupId }) {
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               placeholder="friend@example.com"
-              className="w-full rounded-lg border border-white/10 bg-surface-card px-3 py-2.5 text-sm text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-primary-500"
+              className="w-full rounded-xl border border-white/10 bg-surface-card px-3 py-3 sm:py-2.5 text-base sm:text-sm text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-primary-500"
               autoFocus
               required
             />
           </div>
 
-          <div className="flex gap-3">
+          <div className="flex gap-2.5 sm:gap-3">
             <button
               type="button"
               onClick={() => !submitting && onClose()}
-              className="flex-1 rounded-lg border border-white/10 bg-surface-card px-4 py-2.5 text-sm font-semibold text-slate-300 hover:bg-surface-hover"
+              className="flex-1 rounded-xl border border-white/10 bg-surface-card px-4 py-3 sm:py-2.5 text-xs sm:text-sm font-semibold text-slate-300 hover:bg-surface-hover transition-colors"
               disabled={submitting}
             >
               Cancel
@@ -115,7 +116,7 @@ function AddMemberModal({ open, onClose, groupId }) {
             <button
               type="submit"
               disabled={submitting}
-              className="flex-1 rounded-lg bg-emerald-500 px-4 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-emerald-600 disabled:opacity-50"
+              className="flex-1 rounded-xl bg-emerald-500 px-4 py-3 sm:py-2.5 text-xs sm:text-sm font-bold text-white transition-all hover:bg-emerald-600 active:scale-95 disabled:opacity-50 shadow-lg shadow-emerald-500/20"
             >
               {submitting ? 'Adding…' : 'Add Member'}
             </button>
@@ -147,7 +148,7 @@ export default function GroupDetailPage() {
     <div className="page-enter">
       <button
         onClick={() => navigate('/groups')}
-        className="mb-4 flex items-center gap-1.5 text-sm text-slate-400 hover:text-slate-100"
+        className="mb-4 flex items-center gap-1.5 text-xs sm:text-sm text-slate-400 hover:text-slate-100 transition-colors"
       >
         <ArrowLeftIcon width={16} height={16} /> Back to groups
       </button>
@@ -158,55 +159,55 @@ export default function GroupDetailPage() {
         <p className="py-8 text-center text-sm text-slate-400">{error || 'Group not found.'}</p>
       ) : (
         <>
-          <div className="mb-6 flex flex-wrap items-center justify-between gap-3">
+          <div className="mb-5 sm:mb-6 flex flex-col sm:flex-row sm:items-center justify-between gap-3 sm:gap-4">
             <div className="flex items-center gap-3">
-              <span className="flex h-12 w-12 items-center justify-center rounded-xl bg-primary-500/15 text-2xl">
+              <span className="flex h-11 w-11 sm:h-12 sm:w-12 items-center justify-center rounded-xl bg-primary-500/15 text-xl sm:text-2xl shrink-0">
                 {getGroupEmoji(activeGroup.name)}
               </span>
-              <div>
-                <h1 className="text-xl font-bold text-white">{activeGroup.name}</h1>
-                <p className="text-sm text-slate-400">
+              <div className="min-w-0">
+                <h1 className="text-lg sm:text-xl font-bold text-white truncate">{activeGroup.name}</h1>
+                <p className="text-xs sm:text-sm text-slate-400">
                   {activeGroup.members?.length || 0} {activeGroup.members?.length === 1 ? 'member' : 'members'}
                 </p>
               </div>
             </div>
 
-            <div className="flex flex-wrap gap-2">
+            <div className="flex items-center gap-2 w-full sm:w-auto">
               {canAddMember && (
                 <button
                   onClick={() => setMemberModalOpen(true)}
-                  className="flex items-center gap-1.5 rounded-lg border border-primary-400/30 bg-surface-card px-4 py-2.5 text-sm font-semibold text-primary-200 transition-colors hover:bg-primary-500/15"
+                  className="flex-1 sm:flex-initial flex items-center justify-center gap-1.5 rounded-xl border border-primary-400/30 bg-surface-card px-3.5 sm:px-4 py-2.5 text-xs sm:text-sm font-semibold text-primary-200 transition-all hover:bg-primary-500/15 active:scale-95"
                 >
-                  <UsersIcon width={16} height={16} /> Add Member
+                  <UsersIcon width={15} height={15} /> Add Member
                 </button>
               )}
               <button
                 onClick={() => setModalOpen(true)}
-                className="flex items-center gap-1.5 rounded-lg bg-emerald-500 px-4 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-emerald-600"
+                className="flex-1 sm:flex-initial flex items-center justify-center gap-1.5 rounded-xl bg-emerald-500 px-3.5 sm:px-4 py-2.5 text-xs sm:text-sm font-bold text-white transition-all hover:bg-emerald-600 active:scale-95 shadow-lg shadow-emerald-500/20"
               >
-                <PlusIcon width={16} height={16} /> Add Expense
+                <PlusIcon width={15} height={15} /> Add Expense
               </button>
             </div>
           </div>
 
-          <div className="grid grid-cols-1 gap-6 lg:grid-cols-3">
+          <div className="grid grid-cols-1 gap-4 sm:gap-6 lg:grid-cols-3">
             <div className="lg:col-span-2">
-              <Card className="p-5">
-                <h2 className="mb-4 font-semibold text-slate-100">Expenses</h2>
+              <Card className="p-4 sm:p-5">
+                <h2 className="mb-4 font-semibold text-slate-100 text-sm sm:text-base">Expenses</h2>
                 <ExpenseList />
               </Card>
             </div>
 
-            <div className="space-y-6">
-              <Card className="p-5">
+            <div className="space-y-4 sm:space-y-6">
+              <Card className="p-4 sm:p-5">
                 <BalanceSummary />
               </Card>
-              <Card className="p-5">
-                <h3 className="mb-2 font-medium text-slate-100">By payer</h3>
+              <Card className="p-4 sm:p-5">
+                <h3 className="mb-2 font-medium text-slate-100 text-sm sm:text-base">By payer</h3>
                 <ExpensePieChart />
               </Card>
-              <Card className="p-5">
-                <h3 className="mb-2 font-medium text-slate-100">Spend over time</h3>
+              <Card className="p-4 sm:p-5">
+                <h3 className="mb-2 font-medium text-slate-100 text-sm sm:text-base">Spend over time</h3>
                 <ExpenseBarChart />
               </Card>
             </div>

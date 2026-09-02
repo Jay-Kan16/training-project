@@ -31,7 +31,7 @@ export default function NotificationDropdown({ isOpen, onClose }) {
   return (
     <div
       ref={dropdownRef}
-      className="absolute right-0 top-12 z-50 w-80 sm:w-96 rounded-2xl bg-surface-card/95 backdrop-blur-xl border border-white/10 shadow-2xl p-4 stagger shadow-black/60"
+      className="fixed inset-x-3 sm:inset-x-auto sm:right-0 top-16 sm:top-12 z-50 sm:w-96 rounded-2xl bg-surface-card/95 backdrop-blur-2xl border border-white/10 shadow-2xl p-4 stagger shadow-black/80 max-h-[75vh] flex flex-col"
     >
       <div className="flex items-center justify-between pb-3 border-b border-white/5">
         <div className="flex items-center gap-2">
