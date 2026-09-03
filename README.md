@@ -1,3 +1,8 @@
+
+Swagger url :-  https://splitzy-backend-w7ho.onrender.com/api/docs
+
+
+
 # SplitEase — MERN Expense Splitter
 
 A Splitwise-style expense splitting app built with MongoDB, Express, React, and Node.
